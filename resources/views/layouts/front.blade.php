@@ -31,28 +31,7 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Left Side Of Navbar -->
-                @if(!Auth::guest())
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">{{ __('Product') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">{{ __('Category') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('front.show') }}">{{ __('Show Product') }}</a>
-                        </li>
-                    </ul>
-                @else
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('front.show') }}">{{ __('Show Product') }}</a>
-                        </li>
-                    </ul>
-
-                @endif
-
+            <!-- Left Side Of Navbar -->
 
             <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
