@@ -14,9 +14,10 @@
 
 Auth::routes();
 
-Route::get('/', function () {
-    return view('layouts.app');
-});
+Route::get('/', 'Front\FrontController@index')->name('front.index');
+Route::get('/show', 'Front\FrontController@show')->name('front.show');
+
+
 Route::prefix('admin')->group(function() {
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
