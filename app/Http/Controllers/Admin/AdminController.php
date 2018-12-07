@@ -1,8 +1,11 @@
 <?php
+declare(strict_types = 1);
+
 
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\View\View;
 
 class AdminController extends Controller
 {
@@ -20,12 +23,12 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index():View
     {
         return view('admin.dashboard-v2');
     }
 
-    public function dashboard()
+    public function dashboard():View
     {
         return view('admin.dashboard');
     }

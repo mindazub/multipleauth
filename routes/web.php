@@ -25,6 +25,6 @@ Route::prefix('admin')->group(function() {
     Route::get('/dashboard-v2', 'Admin\AdminController@index')->name('admin.index');
 
 
-    Route::resource('products', 'Admin\ProductController');
+    Route::resource('product', 'Admin\ProductController');
     Route::resource('category', 'Admin\CategoryController');
 });
