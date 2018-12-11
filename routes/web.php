@@ -15,6 +15,10 @@
 Auth::routes();
 
 Route::get('/', 'Front\FrontController@index')->name('front.index');
+
+Route::get('category/{category}', 'Front\FrontController@categoryWithProducts')->name('front.category.products');
+Route::get('product/{category}', 'Front\FrontController@productWithCategory')->name('front.product.category');
+
 Route::get('/show', 'Front\FrontController@show')->name('front.show');
 
 

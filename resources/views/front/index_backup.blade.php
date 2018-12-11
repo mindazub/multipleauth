@@ -9,13 +9,15 @@
 
             <h1 class="my-4">Shop Name</h1>
             <div class="list-group">
-
-                @foreach($categories as $cat)
-
-                <a href="{{ route('front.category.products', [\App\Category::class]) }}" class="list-group-item">{{ $cat->title }}</a>
-
-                @endforeach
-
+                <a href="#" class="list-group-item">Category 1</a>
+                <a href="#" class="list-group-item">Category 2</a>
+                <a href="#" class="list-group-item">Category 3</a>
+                <a href="#" class="list-group-item">Category 4</a>
+                <a href="#" class="list-group-item">Category 5</a>
+                <a href="#" class="list-group-item">Category 6</a>
+                <a href="#" class="list-group-item">Category 7</a>
+                <a href="#" class="list-group-item">Category 8</a>
+                <a href="#" class="list-group-item">Category 9</a>
                 <a href="#" class="list-group-item">+&nbsp&nbsp&nbspMore Items</a>
             </div>
 

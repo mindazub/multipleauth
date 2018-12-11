@@ -11,7 +11,10 @@
         <div class="form-group">
             <a class="btn btn-sm btn-primary" href="{{ route('product.create') }}">{{ __('New') }}</a>
             &nbsp&nbsp&nbsp
-            {{--<a class="btn btn-sm btn-success" href="{{ route('excel.index') }}">{{ __('Upload') }}</a>--}}
+            <a class="btn btn-sm btn-success" href="#">{{ __('Download') }}</a>
+            &nbsp&nbsp&nbsp
+            <a class="btn btn-sm btn-success" href="#">{{ __('Upload') }}</a>
+
 
             {{--<form class="navbar-form navbar-right" action="#">--}}
                 {{--<div class="form-group">--}}
