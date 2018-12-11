@@ -131,7 +131,9 @@ class ProductController extends Controller
     {
         $categories = $this->categoryRepository->all();
 
-        return view('product.edit', compact('product', 'categories'));
+        $categoriesIds = $product->categories->pluck('id')->toArray();
+
+        return view('product.edit', compact('product', 'categories', 'categoriesIds'));
     }
 
     /**

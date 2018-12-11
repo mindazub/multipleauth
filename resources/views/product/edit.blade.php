@@ -59,9 +59,8 @@
                                 <label for="category_id">{{ __('Categories') }}:</label>
 
                                 @foreach($categories as $category)
-                                    <input name="categories[]" type="checkbox" value="{{ $category->id }}" {{ ($category->id == old('category_id')) ? 'selected' : '' }}>
+                                    <input name="categories[]" type="checkbox" value="{{ $category->id }}" {{ in_array($category->id, old('categories', $categoriesIds) ) ? 'checked' : '' }}/>
                                         {{ $category->title }}
-                                    </input>
                                 @endforeach
 
 
