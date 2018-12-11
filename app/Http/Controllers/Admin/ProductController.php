@@ -43,8 +43,10 @@ class ProductController extends Controller
     public function __construct(ProductRepository $productRepository, CategoryRepository $categoryRepository)
     {
 
+        $this->middleware('auth:admin');
         $this->productRepository = $productRepository;
         $this->categoryRepository = $categoryRepository;
+
     }
 
     /**
@@ -114,10 +116,13 @@ class ProductController extends Controller
      *
      * @param Product $product
      * @return View
+     * @throws \Exception
      */
     public function show(Product $product): View
     {
-        return view('product.show', compact('product'));
+        $categories = $this->categoryRepository->all();
+
+        return view('product.show', compact('product','categories'));
     }
 
     /**

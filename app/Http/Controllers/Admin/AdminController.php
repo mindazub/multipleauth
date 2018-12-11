@@ -18,16 +18,20 @@ class AdminController extends Controller
     {
         $this->middleware('auth:admin');
     }
+
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
     public function index():View
     {
         return view('admin.dashboard-v2');
     }
 
+    /**
+     * @return View
+     */
     public function dashboard():View
     {
         return view('admin.dashboard');

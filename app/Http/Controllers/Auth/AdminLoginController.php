@@ -11,19 +11,6 @@ use Illuminate\View\View;
 
 class AdminLoginController extends Controller
 {
-    /**
-     * Show the application’s login form.
-     *
-     * @return
-     */
-    public function showLoginForm(): View
-    {
-        return view('auth.admin-login');
-    }
-    protected function guard(){
-        return Auth::guard('admin');
-    }
-
     use AuthenticatesUsers;
     /**
      * Where to redirect users after login.
@@ -40,6 +27,30 @@ class AdminLoginController extends Controller
     {
         $this->middleware('guest:admin')->except('logout');
     }
+
+    /**
+     * Show the application’s login form.
+     *
+     * @return View
+     */
+    public function showLoginForm(): View
+    {
+//        if(!session()->has('url.intended'))
+//        {
+//            session(['url.intended' => url()->previous()]);
+//        }
+        return view('auth.admin-login');
+    }
+
+
+    /**
+     * @return mixed
+     */
+    protected function guard(){
+        return Auth::guard('admin');
+    }
+
+
 
 
 }

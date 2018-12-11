@@ -32,13 +32,13 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    @if(!Auth::guest())
+                    @auth
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">{{ __('Product') }}</a>
+                                <a class="nav-link" href="{{ route('product.index') }}">{{ __('Product') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">{{ __('Category') }}</a>
+                                <a class="nav-link" href="{{ route('category.index') }}">{{ __('Category') }}</a>
                             </li>
                         </ul>
                     @endif
