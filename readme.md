@@ -2,9 +2,23 @@
 
 ## B2B ESHOP API
 
-- composer install 
+Project Description: 
+
+B2B ESHOP API is an b2b eshop project, main advantages - simple interface, eshop b2b features, product access through api, excel import/export for products and categories.
+
+Server Requirements: 
+
+the same as for every Laravel 5.* project: PHP >= 7.1.3, OpenSSL PHP Extension, PDO PHP Extension, Mbstring PHP Extension, Tokenizer PHP Extension, XML PHP Extension, Ctype PHP Extension, JSON PHP Extension, BCMath PHP Extension.
+
+Project start:
+
+- composer install
+
+- change DB name and password in .env file
 
 - php artisan key:generate
+
+- php artisan storage:link
 
 - php artisan migrate
 
@@ -12,13 +26,10 @@
 
 - Create admin user: php artisan tinker
 
->>> $admin = new App\Admin;
-=> App\Admin {#2927}
->>> $admin->email = "admin@admin.com";
-=> "admin@admin.com"
->>> $admin->password = bcrypt('admin');
-=> "$2y$10$Oem9/MUE/yOdWWsabqT3Jeond6NuN2bY5LKGSRAcYOloWr4bz9gau"
->>> $admin->save();
-=> true
+$admin = new App\Admin;
+$admin->email = "admin@admin.com";
+$admin->password = bcrypt('admin');
+$admin->save();
 
 - Admin User /admin/login
+
