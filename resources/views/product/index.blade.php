@@ -21,8 +21,9 @@
                         Download
                     </button>
                     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                        <a class="dropdown-item" href="#">*.xlsx</a>
-                        <a class="dropdown-item" href="#">*.csv</a>
+                        <a href="{{ URL::to('admin/downloadExcel/xls') }}"><button class="btn btn-success">Download Excel xls</button></a>
+                        <a href="{{ URL::to('admin/downloadExcel/xlsx') }}"><button class="btn btn-success">Download Excel xlsx</button></a>
+                        <a href="{{ URL::to('admin/downloadExcel/csv') }}"><button class="btn btn-success">Download CSV</button></a>
                     </div>
                 </div>
             </div>
@@ -34,7 +35,18 @@
                     </button>
                     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                         {{--<a class="dropdown-item" href="#">*.xlsx</a>--}}
-                        <a class="dropdown-item" href="#">*.csv</a>
+                        {{--<a class="dropdown-item" href="#">*.csv</a>--}}
+
+                        <form
+                                action="{{ URL::to('admin/importExcel') }}" class="form-horizontal" method="post" enctype="multipart/form-data" >
+                            <br><br>
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="file" name="import_file" />
+                            <br>
+                            <button class="btn btn-primary">Import File</button>
+                        </form>
+
+
                     </div>
                 </div>
             </div>
