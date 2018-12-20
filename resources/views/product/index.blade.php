@@ -10,12 +10,34 @@
 
         <div class="form-group">
             <a class="btn btn-sm btn-primary" href="{{ route('product.create') }}">{{ __('New') }}</a>
-            &nbsp&nbsp&nbsp
-            <a class="btn btn-sm btn-success" href="#">{{ __('Download') }}</a>
-            &nbsp&nbsp&nbsp
-            <a class="btn btn-sm btn-success" href="#">{{ __('Upload') }}</a>
+            {{--&nbsp&nbsp&nbsp--}}
+            {{--<a class="btn btn-sm btn-success" href="#">{{ __('Download') }}</a>--}}
+            {{--&nbsp&nbsp&nbsp--}}
+            {{--<a class="btn btn-sm btn-success" href="#">{{ __('Upload') }}</a>--}}
 
+            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                <div class="btn-group" role="group">
+                    <button id="btnGroupDrop1" type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Download
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                        <a class="dropdown-item" href="#">*.xlsx</a>
+                        <a class="dropdown-item" href="#">*.csv</a>
+                    </div>
+                </div>
+            </div>
 
+            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                <div class="btn-group" role="group">
+                    <button id="btnGroupDrop1" type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Upload
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                        {{--<a class="dropdown-item" href="#">*.xlsx</a>--}}
+                        <a class="dropdown-item" href="#">*.csv</a>
+                    </div>
+                </div>
+            </div>
             {{--<form class="navbar-form navbar-right" action="#">--}}
                 {{--<div class="form-group">--}}
                     {{--<input type="text" class="form-control" placeholder="Search for products ...">--}}

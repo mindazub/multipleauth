@@ -4,27 +4,46 @@
 
 
     <div class="container">
-
+        <h1>Categories</h1>
 
         <div class="form-group">
-            <h1>Categories</h1>
-            <a class="btn btn-sm btn-primary" href="{{ route('category.create') }}">{{ __('New') }}</a>
-            &nbsp&nbsp&nbsp
-            <a class="btn btn-sm btn-success" href="#">{{ __('Download') }}</a>
-            &nbsp&nbsp&nbsp
-            <a class="btn btn-sm btn-success" href="#">{{ __('Upload') }}</a>
+            <a class="btn btn-sm btn-success" href="{{ route('category.create') }}">{{ __('New') }}</a>
+            {{--&nbsp&nbsp&nbsp--}}
+            {{--<a class="btn btn-sm btn-success" href="#">{{ __('Download') }}</a>--}}
+            {{--&nbsp&nbsp&nbsp--}}
+            {{--<a class="btn btn-sm btn-success" href="#">{{ __('Upload') }}</a>--}}
 
+            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                <div class="btn-group" role="group">
+                    <button id="btnGroupDrop1" type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Download
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                        <a class="dropdown-item" href="#">*.xlsx</a>
+                        <a class="dropdown-item" href="#">*.csv</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                <div class="btn-group" role="group">
+                    <button id="btnGroupDrop1" type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Upload
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                        {{--<a class="dropdown-item" href="#">*.xlsx</a>--}}
+                        <a class="dropdown-item" href="#">*.csv</a>
+                    </div>
+                </div>
+            </div>
             {{--<form class="navbar-form navbar-right" action="#">--}}
-                {{--<div class="form-group">--}}
-                    {{--<input type="text" class="form-control" name="category" placeholder="Search for categories ...">--}}
-
-
-                {{--</div>--}}
-
-                {{--<button type="submit" class="btn btn-default">--}}
-                    {{--<span class="glyphicon glyphicon-search" aria-hidden="true"></span>--}}
-                    {{--Search--}}
-                {{--</button>--}}
+            {{--<div class="form-group">--}}
+            {{--<input type="text" class="form-control" placeholder="Search for products ...">--}}
+            {{--</div>--}}
+            {{--<button type="submit" class="btn btn-default">--}}
+            {{--<span class="glyphicon glyphicon-search" aria-hidden="true"></span>--}}
+            {{--Search--}}
+            {{--</button>--}}
             {{--</form>--}}
         </div>
 
