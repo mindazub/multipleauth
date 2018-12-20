@@ -128,4 +128,9 @@ class CategoryController extends Controller
                 ->with('status', $exception->getMessage());
         }
     }
+
+    public function downloadExcelCategories()
+    {
+     return 'ok';
+    }
 }

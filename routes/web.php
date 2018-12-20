@@ -33,4 +33,17 @@ Route::prefix('admin')->group(function() {
 
     Route::resource('product', 'Admin\ProductController');
     Route::resource('category', 'Admin\CategoryController');
+
+    /**
+     * ROUTES FOR IMPORT PRODUCTS AND CATEGORIES WITH EXCEL
+     */
+
+    Route::get('importExportCategories', 'Admin\ExcelController@importExportCategories')->name('excel.indexCategories');
+    Route::get('downloadExcelCategories/{type}', 'Admin\ExcelController@downloadExcelCategories');
+    Route::post('importExcelCategories', 'Admin\ExcelController@importExcelCategories');
+
+    Route::get('importExport', 'Admin\ExcelController@importExport')->name('excel.index');
+    Route::get('downloadExcel/{type}', 'Admin\ExcelController@downloadExcel');
+    Route::post('importExcel', 'Admin\ExcelController@importExcel');
+
 });
