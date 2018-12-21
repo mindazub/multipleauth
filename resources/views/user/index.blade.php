@@ -23,6 +23,7 @@
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Email</th>
+                                <th>Role</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
@@ -32,6 +33,13 @@
                                     <td>{{ $user->id }}</td>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
+                                    <td>
+                                        {{--@foreach($user->roles as $role)--}}
+                                            {{--{{ $role->title }}--}}
+                                        {{--@endforeach--}}
+
+                                        {{ isset($user->roles->title) ? $user->roles->title : '' }}
+                                    </td>
                                     <td>
                                         <a class="btn btn-sm btn-primary" href="{{ route('user.edit', $user->id) }}">Update</a>
                                         <form action="{{ route('user.destroy', $user->id) }}" method="post">

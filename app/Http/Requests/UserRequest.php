@@ -32,9 +32,10 @@ class UserRequest extends FormRequest
      */
     public function rules(): array
     {
+
         return [
             'name' => 'required|string',
-            'role_id' => 'nullable|array',
+            'role_id' => 'nullable',
             'email' => [
                 'required',
                 'email',
@@ -42,13 +43,14 @@ class UserRequest extends FormRequest
 
             ],
         ];
+        dd('ok');
     }
 
     /**
      * @return array|null
      */
 
-    public function getRoleIds(): ?array
+    public function getRoleIds(): string
     {
         return $this->input('role_id');
     }

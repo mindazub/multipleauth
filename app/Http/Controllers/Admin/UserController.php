@@ -25,7 +25,9 @@ class UserController extends Controller
     public function index(): View
     {
         $roles = Role::all();
-        $users = User::query()->paginate();
+        $users = User::query()->with('roles')
+            ->paginate();
+//dd($users->toArray());
 
         return view('user.index', compact('users', 'roles'));
     }
@@ -57,7 +59,7 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->update($request->toArray());
 
-        $user->roles()->sync($request->getRoleIds());
+        $user->role_id = ($request->getRoleIds());
 
         return redirect()->route('user.index')
             ->with('status', 'User updated successfully!');

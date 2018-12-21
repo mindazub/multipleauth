@@ -39,8 +39,8 @@
                                 @foreach($roles as $role)
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox"
-                                               id="role_{{ $role->id }}" name="role_id[]" value="{{ $role->id }}"
-                                            {{ in_array($role->id, array_keys($user->roles->groupBy('id')->toArray())) ? 'checked="checked"' : '' }}
+                                               id="role_{{ $role->id }}" name="role_id" value="{{ $role->id }}"
+                                            {{ ($role->id == $user->role_id) ? 'checked="checked"' : '' }}
                                         >
                                         {{ $role->title }}
                                         <label for="role_{{ $role->id }}" class="form-check-label" >{{ $role->title }}</label>
