@@ -4,11 +4,16 @@ declare(strict_types = 1);
 
 namespace App\Http\Requests;
 
+
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 
-class RoleRequest extends FormRequest
+/**
+ * Class UserRequest
+ * @package App\Http\Requests
+ */
+class UserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -17,8 +22,7 @@ class RoleRequest extends FormRequest
      */
     public function authorize(): bool
     {
-//        return Auth::check();
-        return true;
+        return Auth::check();
     }
 
     /**
@@ -28,28 +32,24 @@ class RoleRequest extends FormRequest
      */
     public function rules(): array
     {
-        $rules = [
-            'title' => [
+        return [
+            'name' => 'required|string',
+            'role_id' => 'nullable|array',
+            'email' => [
                 'required',
-                'string',
-                'min:6',
-                'unique:roles'
+                'email',
+                Rule::unique('users')->ignore($this->route()->parameter('user')),
+
             ],
-            'discount' => [
-                'required',
-                'min:0',
-                'max:50',
-                'numeric'
-            ]
         ];
-
-        if ($this->isMethod('PUT')) {
-            $rules['title'] = 'required|min:2';
-        }
-
-
-        return $rules;
     }
 
+    /**
+     * @return array|null
+     */
 
+    public function getRoleIds(): ?array
+    {
+        return $this->input('role_id');
+    }
 }

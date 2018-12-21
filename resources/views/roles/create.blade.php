@@ -24,6 +24,16 @@
                                 @endif
                             </div>
 
+                            <div class="form-group">
+                                <label for="discount">
+                                    {{ __('Dicount') }}
+                                </label>
+                                <input type="number" class="form-control" step="1" value="0" name="discount" id="discount">
+                                @if($errors->has('discount'))
+                                    <div class="alert alert-danger">{{ $errors->first('discount') }}</div>
+                                @endif
+                            </div>
+
                             <input type="submit" class="btn btn-sm btn-success" value="{{ __('Save') }}">
                         </form>
 

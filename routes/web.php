@@ -22,40 +22,46 @@ Route::get('product/{category}', 'Front\FrontController@productWithCategory')->n
 Route::get('/show', 'Front\FrontController@show')->name('front.show');
 
 
-Route::prefix('admin')->group(function() {
-//Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
+//Route::prefix('admin')->group(function() {
+Route::group(['prefix' => 'admin'], function () {
+
 
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
-    Route::get('/dashboard', 'Admin\AdminController@dashboard')->name('admin.dashboard');
-    Route::get('/dashboard-v2', 'Admin\AdminController@index')->name('admin.index');
+
+    Route::group(['middleware' => ['auth:admin']], function () {
+
+        Route::get('/dashboard', 'Admin\AdminController@dashboard')->name('admin.dashboard');
+        Route::get('/dashboard-v2', 'Admin\AdminController@index')->name('admin.index');
 
 
-    Route::resource('product', 'Admin\ProductController');
-    Route::resource('category', 'Admin\CategoryController');
+        Route::resource('product', 'Admin\ProductController');
+        Route::resource('category', 'Admin\CategoryController');
 
-    /**
-     * ROUTES FOR IMPORT PRODUCTS AND CATEGORIES WITH EXCEL
-     */
+        /**
+         * ROUTES FOR IMPORT PRODUCTS AND CATEGORIES WITH EXCEL
+         */
 
-    Route::get('importExportCategories', 'Admin\ExcelController@importExportCategories')->name('excel.indexCategories');
-    Route::get('downloadExcelCategories/{type}', 'Admin\ExcelController@downloadExcelCategories');
-    Route::post('importExcelCategories', 'Admin\ExcelController@importExcelCategories');
+        Route::get('importExportCategories', 'Admin\ExcelController@importExportCategories')->name('excel.indexCategories');
+        Route::get('downloadExcelCategories/{type}', 'Admin\ExcelController@downloadExcelCategories');
+        Route::post('importExcelCategories', 'Admin\ExcelController@importExcelCategories');
 
-    Route::get('importExport', 'Admin\ExcelController@importExport')->name('excel.index');
-    Route::get('downloadExcel/{type}', 'Admin\ExcelController@downloadExcel');
-    Route::post('importExcel', 'Admin\ExcelController@importExcel');
+        Route::get('importExport', 'Admin\ExcelController@importExport')->name('excel.index');
+        Route::get('downloadExcel/{type}', 'Admin\ExcelController@downloadExcel');
+        Route::post('importExcel', 'Admin\ExcelController@importExcel');
 
-    /**
-     * ROLE ROUTES
-     */
+        /**
+         * ROLE ROUTES
+         */
 
-    Route::resource('/role', 'Admin\RoleController')->except(['show']);
+        Route::resource('/role', 'Admin\RoleController')->except(['show']);
 
-    /**
-     * USER ROUTES
-     */
+        /**
+         * USER ROUTES
+         */
 
-    Route::resource('/user', 'UserController')->except(['show']);
+        Route::resource('/user', 'Admin\UserController')->except(['show']);
 
+    });
 });
+

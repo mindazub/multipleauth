@@ -42,6 +42,8 @@ class RoleController extends Controller
      */
     public function store(RoleRequest $request)
     {
+//        dd($request->toArray());
+
         Role::query()->create($request->toArray());
 
         return redirect()->route('role.index')
