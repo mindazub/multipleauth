@@ -46,4 +46,16 @@ Route::prefix('admin')->group(function() {
     Route::get('downloadExcel/{type}', 'Admin\ExcelController@downloadExcel');
     Route::post('importExcel', 'Admin\ExcelController@importExcel');
 
+    /**
+     * ROLE ROUTES
+     */
+
+    Route::resource('/role', 'Admin\RoleController')->except(['show']);
+
+    /**
+     * USER ROUTES
+     */
+
+    Route::resource('/user', 'UserController')->except(['show']);
+
 });
