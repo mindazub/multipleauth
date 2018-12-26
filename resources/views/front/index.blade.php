@@ -12,7 +12,7 @@
 
                 @foreach($categories as $cat)
 
-                <a href="{{ route('front.category.products', [\App\Category::class]) }}" class="list-group-item">{{ $cat->title }}</a>
+                <a href="{{ route('front.category.products', [$cat->slug]) }}" class="list-group-item">{{ $cat->title }}</a>
 
                 @endforeach
 
@@ -64,7 +64,7 @@
 
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="card h-100">
-                            <a href="#">
+
                                 {{--<img class="card-img-top" src="{{ $product->picture_one }}" alt="">--}}
                                 <img width="200"
                                      style="padding-left: 35px;"
@@ -74,7 +74,9 @@
                             </a>
                             <div class="card-body">
                                 <h4 class="card-title">
-                                    <a href="#">{{ $product->title }}</a>
+                                    <a href="{{ route('front.show', [$product->id]) }}">
+                                        {{ $product->title }}
+                                    </a>
                                 </h4>
                                 <h5>Wholesale: ${{ $product->wholeSalePrice }}</h5>
                                 <h5>Retail: ${{ $product->retailPrice }}</h5>

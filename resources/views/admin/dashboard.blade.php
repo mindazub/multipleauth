@@ -18,7 +18,7 @@
                 <span class="badge badge-pill badge-success">{{ $categoryBadge }}</span>
             </h1>
             <p class="lead">
-                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                <a class="btn btn-primary btn-lg" href="{{ url('/admin/category') }}" role="button">Learn more</a>
             </p>
         </div>
     </div>
@@ -29,7 +29,7 @@
                 <span class="badge badge-pill badge-success">{{ $roleBadge }}</span>
             </h1>
             <p class="lead">
-                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                <a class="btn btn-primary btn-lg" href="{{ url('/admin/role') }}" role="button">Learn more</a>
             </p>
         </div>
     </div>

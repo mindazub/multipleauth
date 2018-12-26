@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Category;
+use App\Product;
 use App\Repositories\CategoryRepository;
 use App\Repositories\ProductRepository;
 use Illuminate\Http\Request;
@@ -40,15 +41,19 @@ class FrontController extends Controller
     }
 
 
-    public function categoryWithProducts(Category $category)
+    /**
+     * @param string $slug
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function categoryWithProducts(string $slug)
     {
-//        $category = $this->categoryRepository->find($category);
+        $categories = $this->categoryRepository->all();
 
-//        $productsForCategory = $category->products->get();
+        $categoryFromView = $this->categoryRepository->getBySlug($slug);
 
-        $productsForCategory = $category->products->toArray();
-        
-        return view('front.index', compact('category', 'productsForCategory'));
+        $products = $categoryFromView->products()->paginate();
+
+        return view('front.index', compact('category', 'products', 'categories'));
     }
 
 
@@ -56,7 +61,17 @@ class FrontController extends Controller
     {
         
     }
-    public function show(){
-        return view('front.show');
+
+    /**
+     * @param Product $product
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showProduct(Product $product){
+
+        $categories = $this->categoryRepository->paginate();
+
+        $product = $this->productRepository->getBySlug($product->slug);
+
+        return view('front.show', compact('categories', 'product'));
     }
 }
