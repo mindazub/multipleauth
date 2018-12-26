@@ -35,16 +35,24 @@
                     @auth
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('product.index') }}">{{ __('Product') }}</a>
+                                <a class="nav-link" href="{{ route('product.index') }}">{{ __('Product') }}
+                                    <span class="badge badge-pill badge-success">{{ $productBadge }}</span>
+                                </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('category.index') }}">{{ __('Category') }}</a>
+                                <a class="nav-link" href="{{ route('category.index') }}">{{ __('Category') }}
+                                    <span class="badge badge-pill badge-success">{{ $categoryBadge }}</span>
+                                </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('role.index') }}">{{ __('Role') }}</a>
+                                <a class="nav-link" href="{{ route('role.index') }}">{{ __('Role') }}
+                                    <span class="badge badge-pill badge-success">{{ $roleBadge }}</span>
+                                </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('user.index') }}">{{ __('User') }}</a>
+                                <a class="nav-link" href="{{ route('user.index') }}">{{ __('User') }}
+                                    <span class="badge badge-pill badge-success">{{ $userBadge }}</span>
+                                </a>
                             </li>
                         </ul>
                     @endif

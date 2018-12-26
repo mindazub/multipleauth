@@ -33,8 +33,8 @@ class FrontController extends Controller
 
     public function index()
     {
-        $categories = $this->categoryRepository->paginate(10);
-        $products = $this->productRepository->paginate(10);
+        $categories = $this->categoryRepository->all();
+        $products = $this->productRepository->paginate(6);
 
         return view('front.index', compact('categories', 'products'));
     }
