@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">
                         {{ __('Users') }}
-                        <a href="{{ route('user.create') }}" class="btn btn-primary btn-sm">New</a>
+                        {{--<a href="{{ route('user.create') }}" class="btn btn-primary btn-sm">New</a>--}}
                     </div>
 
                     <div class="card-body">
