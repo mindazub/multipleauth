@@ -65,7 +65,7 @@ class ExcelController extends Controller
             $data = Excel::load($path, function($reader) {
             })->get();
 
-            dd($data);
+//            dd($data);
 
             if(!empty($data) && $data->count()){
                 foreach ($data as $key => $value) {

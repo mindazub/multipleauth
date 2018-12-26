@@ -24,12 +24,7 @@ Project start:
 
 - Normal User /Register and /Login
 
-- Create admin user: php artisan tinker
-
-$admin = new App\Admin;
-$admin->email = "admin@admin.com";
-$admin->password = bcrypt('admin');
-$admin->save();
-
 - Admin User /admin/login
+    
+    admin@admin.com, admin
 
