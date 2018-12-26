@@ -1,5 +1,6 @@
 <?php
 
+use App\Admin;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -20,6 +21,18 @@ class CreateAdminsTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        /**
+         * Create admin user from the start
+         *
+         * @return void
+         */
+
+        Admin::create([
+            'email' => 'admin@admin.com',
+            'password' => bcrypt('admin')
+        ]);
+
     }
 
     /**

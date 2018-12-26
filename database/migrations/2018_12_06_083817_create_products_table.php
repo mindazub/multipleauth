@@ -29,6 +29,30 @@ class CreateProductsTable extends Migration
             $table->integer('qty')->nullable();
             $table->integer('reference_product_id')->nullable();
         });
+
+        /**
+         * Create products
+         */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
     /**
      * Reverse the migrations.

@@ -40,6 +40,9 @@ class ExcelController extends Controller
     public function downloadExcel($type)
     {
         $data = Product::get()->toArray();
+
+//        dd($data);
+
         return Excel::create('products_file', function($excel) use ($data) {
             $excel->sheet('firstsheet', function($sheet) use ($data)
             {
@@ -62,7 +65,7 @@ class ExcelController extends Controller
             $data = Excel::load($path, function($reader) {
             })->get();
 
-//            dd($data);
+            dd($data);
 
             if(!empty($data) && $data->count()){
                 foreach ($data as $key => $value) {
@@ -140,12 +143,10 @@ class ExcelController extends Controller
             if(!empty($data) && $data->count()){
                 foreach ($data as $key => $value) {
                     $insert[] = [
-
-//                        'id' => $value->id,
-                        'created_at' => Carbon::now(),
-                        'updated_at' => Carbon::now(),
                         'title' => $value->title,
                         'slug' => $value->slug,
+                        'created_at' => Carbon::now(),
+                        'updated_at' => Carbon::now(),
                     ];
 
 //                    dd($insert);

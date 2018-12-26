@@ -24,6 +24,7 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Role</th>
+                                <th>Discount</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
@@ -40,6 +41,8 @@
 
                                         {{ isset($user->roles->title) ? $user->roles->title : '' }}
                                     </td>
+                                    <td>{{ $user->roles->discount }}</td>
+
                                     <td>
                                         <a class="btn btn-sm btn-primary" href="{{ route('user.edit', $user->id) }}">Update</a>
                                         <form action="{{ route('user.destroy', $user->id) }}" method="post">
