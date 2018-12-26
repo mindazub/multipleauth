@@ -32,7 +32,7 @@ class CategoryController extends Controller
      */
     public function index(): View
     {
-        $categories = $this->categoryRepository->paginate(5);
+        $categories = $this->categoryRepository->paginate(10);
 
         return view('category.index', compact('categories'));
     }
