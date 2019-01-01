@@ -22,17 +22,6 @@ class CreateAdminsTable extends Migration
             $table->timestamps();
         });
 
-        /**
-         * Create admin user from the start
-         *
-         * @return void
-         */
-
-        Admin::create([
-            'email' => 'admin@admin.com',
-            'password' => bcrypt('admin')
-        ]);
-
     }
 
     /**
