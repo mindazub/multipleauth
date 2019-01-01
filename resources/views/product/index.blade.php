@@ -129,12 +129,26 @@
                     <td><img width="50" src="{{ Storage::url($product->picture_three) }}" alt="picture_three"></td>
                     <td> {{ $product->qty }}</td>
                     <td>
-                        <a class="btn btn-sm btn-info" href="{{ route('product.show', [$product->id]) }}">{{ __('View') }}</a>
-                        <a class="btn btn-sm btn-success" href="{{ route('product.edit', [$product->id]) }}">{{ __('Edit') }}</a>
+
+                        <a href="{{ route('product.show', [$product->id]) }}"
+                            style="color: green;">
+                            <i class="fas fa-eye">&nbspShow</i>
+                        </a>
+
+                        <a href="{{ route('product.edit', [$product->id]) }}"
+                           style="color: #1d68a7;">
+                            <i class="far fa-edit">&nbspEdit</i>
+                        </a>
+
+                        <br>
+
                         <form action="{{ route('product.destroy', [$product->id]) }}" method="post">
                             {{ csrf_field() }}
                             {{ method_field('delete') }}
-                            <input class="btn btn-sm btn-danger" type="submit" value="Delete">
+                            <input class="btn btn-sm btn-danger" type="submit"
+                                   style="background-color: red; -webkit-border-radius: ;-moz-border-radius: ;border-radius: 20px;" value="x">
+
+
                         </form>
                     </td>
                     @endforeach

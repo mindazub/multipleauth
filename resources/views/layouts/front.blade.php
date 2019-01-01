@@ -35,6 +35,17 @@
 
             <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('front.showCart') }}">
+                            <i class="fas fa-shopping-cart"></i>
+                            Cart
+                            <span class="badge badge-pill badge-success">
+                                {{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}
+                            </span>
+                        </a>
+                    </li>
+
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">

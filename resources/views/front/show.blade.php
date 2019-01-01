@@ -13,7 +13,8 @@
 
                     @foreach($categories as $cat)
 
-                        <a href="{{ route('front.category.products', [\App\Category::class]) }}" class="list-group-item">{{ $cat->title }}</a>
+                        <a href="{{ route('front.category.products', [$cat->slug]) }}"
+                           class="list-group-item">{{ $cat->title }}</a>
 
                     @endforeach
 
@@ -35,18 +36,20 @@
                         <h3 class="card-title">{{ $product->title }}</h3>
                         <h4>Wholesale price: ${{ $product->wholeSalePrice }}</h4>
                         <h4>Retail price: ${{ $product->retailPrice }}</h4>
+                        <p>
+                            <button class="btn btn-success">Add to Cart</button>
+                        </p>
                         <p class="card-text">
                             {{ $product->description }}
                         </p>
-                        {{--<span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>--}}
-                        {{--4.0 stars--}}
+
                     </div>
                 </div>
                 <!-- /.card -->
 
                 {{--<div class="card card-outline-secondary my-4">--}}
                     {{--<div class="card-header">--}}
-                        {{--Product Reviews--}}
+                        {{--Product Reviews  --}}
                     {{--</div>--}}
                     {{--<div class="card-body">--}}
                         {{--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>--}}

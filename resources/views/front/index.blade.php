@@ -114,8 +114,7 @@
                                     </p>
                                 </div>
                                 <div class="card-footer">
-                                    <button class="btn btn-success">Add to Cart</button>
-                                    {{--<small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>--}}
+                                    <a class="btn btn-success pull-right" href="{{ route('front.addToCart', ['id' => $product->id]) }}">Add to Cart</a>
                                 </div>
                             </div>
                         </div>

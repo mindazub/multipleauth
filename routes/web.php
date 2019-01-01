@@ -22,8 +22,13 @@ Route::get('product/{category}', 'Front\FrontController@productWithCategory')->n
 
 Route::get('/show/{product}', 'Front\FrontController@showProduct')->name('front.show');
 
+Route::get('/addToCart/{product}', 'Front\FrontController@addToCart')->name('front.addToCart');
 
-//Route::prefix('admin')->group(function() {
+Route::get('/cart', 'Front\FrontController@showCart')->name('front.showCart');
+
+Route::get('/checkout', 'Front\FrontController@checkout')->name('front.checkout');
+
+
 Route::group(['prefix' => 'admin'], function () {
 
 
