@@ -5,9 +5,8 @@ namespace App;
 
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-
-use App\Category;
 
 /**
  * Class Product
@@ -48,6 +47,7 @@ use App\Category;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Product whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Product whereWholeSalePrice($value)
  * @mixin \Eloquent
+ * @property-read \App\Pricelist $pricelist
  */
 class Product extends Model
 {
@@ -75,6 +75,14 @@ class Product extends Model
     public function categories(): BelongsToMany
     {
         return $this->belongsToMany(Category::class);
+    }
+
+    /**
+     * @return belongsTo
+     */
+    public function pricelist(): BelongsTo
+    {
+        return $this->belongsTo(Pricelist::class);
     }
 
 }

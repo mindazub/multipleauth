@@ -185,16 +185,6 @@ class ProductController extends Controller
 
         $product->categories()->sync($request->getCategoriesIds());
 
-//        dd($product->categories());
-
-//        Ateiciai, kai bus produktas su kuo nors suristas, pvz Resource->pictureOne() ar kazkas panasaus.
-//
-//        /** @var Article $article */
-//        $article = $this->articleRepository->find($articleId);
-//
-//        $article->categories()->sync($request->getCategoriesIds());
-
-
         return redirect()
             ->route('product.index')
             ->with('status', 'Product Updated successfully!');
