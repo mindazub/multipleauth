@@ -63,6 +63,12 @@ Route::group(['prefix' => 'admin'], function () {
         Route::resource('/role', 'Admin\RoleController')->except(['show']);
 
         /**
+         * PRICE LIST ROUTE
+         */
+
+        Route::get('/pricelist/{userId}', 'Admin\UserController@showPriceList')->name('pricelist');
+
+        /**
          * USER ROUTES
          */
 

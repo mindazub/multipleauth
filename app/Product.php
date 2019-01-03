@@ -47,7 +47,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Product whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Product whereWholeSalePrice($value)
  * @mixin \Eloquent
- * @property-read \App\Pricelist $pricelist
+ * @property-read \App\PriceList $pricelist
  */
 class Product extends Model
 {
@@ -80,9 +80,8 @@ class Product extends Model
     /**
      * @return belongsTo
      */
-    public function pricelist(): BelongsTo
+    public function priceList(): BelongsTo
     {
-        return $this->belongsTo(Pricelist::class);
+        return $this->belongsTo(PriceList::class, 'product_id', 'id');
     }
-
 }

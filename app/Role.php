@@ -4,6 +4,7 @@ declare(strict_types = 1);
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Class Role
@@ -41,4 +42,12 @@ class Role extends Model
         'title' => 'string',
         'discount' => 'float',
     ];
+
+    /**
+     * @return HasMany
+     */
+    public function priceList():HasMany
+    {
+        return $this->hasMany(PriceList::class);
+    }
 }

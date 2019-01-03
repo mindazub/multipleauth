@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\Role;
+use App\Services\PriceListService;
 use App\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
@@ -17,6 +18,14 @@ use Illuminate\View\View;
  */
 class UserController extends Controller
 {
+
+    private $priceListService;
+
+    public function __construct(PriceListService $priceListService)
+    {
+        $this->priceListService = app(PriceListService::class);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -78,5 +87,14 @@ class UserController extends Controller
 
         return redirect()->route('user.index')
             ->with('status', 'User deleted successfully!');
+    }
+
+    public function showPriceList(int $userId, User $user): View
+    {
+//        $user = User::findOrFail($userId);
+
+        $products = $this->priceListService->getProductsByUser($userId);
+
+        return view('pricelist.index', compact('products', 'userId', 'user'));
     }
 }

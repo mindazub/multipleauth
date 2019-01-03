@@ -43,7 +43,7 @@
                                         {{ isset($user->roles->title) ? $user->roles->title : '' }}
                                     </td>
                                     <td>{{ $user->roles->discount }}</td>
-                                    <td><a href="#"><i class="fas fa-eye"></i></a></td>
+                                    <td><a href="{{ route('pricelist', [$user->id]) }}"><i class="fas fa-eye"></i></a></td>
 
                                     <td>
                                         <a class="btn btn-sm btn-primary" href="{{ route('user.edit', $user->id) }}">Update</a>

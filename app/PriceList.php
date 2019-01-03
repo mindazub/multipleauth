@@ -3,30 +3,31 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * App\Pricelist
+ * App\PriceList
  *
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Product[] $products
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Role[] $roles
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Pricelist newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Pricelist newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Pricelist query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PriceList newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PriceList newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PriceList query()
  * @mixin \Eloquent
  */
-class Pricelist extends Model
+class PriceList extends Model
 {
     protected $fillable = [
         'role_id', 'price', 'product_id'
     ];
 
     /**
-     * @return HasMany
+     * @return BelongsTo
      */
-    public function products(): HasMany
+    public function products(): BelongsTo
     {
-        return $this->hasMany(Product::class);
+        return $this->belongsTo(Product::class, 'id', 'product_id');
     }
 
     /**
