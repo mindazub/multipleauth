@@ -97,7 +97,11 @@
                 <tr>
                     <td> {{ $product->id }}</td>
                     <td> {{ $product->sku }}</td>
-                    <td> {{ $product->title }} </td>
+                    <td>
+                        @if($product->title)
+                            <span class="badge">OK</span>
+                        @endif
+                    </td>
                     <td>
                         @if($product->slug)
                             <span class="badge">OK</span>
