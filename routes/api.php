@@ -16,3 +16,15 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::group(['prefix' => 'v1'], function() {
+    Route::group(['prefix' => 'products'], function() {
+        Route::get('/', 'API\\ProductController@index');
+//        Route::get('one/{articleId}', 'API\\ArticleController@getById');
+//        Route::get('one/{articleId}/full', 'API\\ArticleController@getByIdFull');
+//        Route::get('full', 'API\\ArticleController@getFullData');
+    });
+//    Route::apiResource('categories', 'API\\CategoryController')->only(['index', 'show']);
+//    Route::apiResource('author', 'API\\AuthorController')->only(['index', 'show']);
+});

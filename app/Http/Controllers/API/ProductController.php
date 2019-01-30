@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\API;
 
 use App\Http\Requests\ProductStoreRequest;
 use App\Http\Requests\ProductUpdateRequest;
 use App\Product;
 use App\Repositories\CategoryRepository;
 use App\Repositories\ProductRepository;
+use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -44,7 +45,6 @@ class ProductController extends Controller
     public function __construct(ProductRepository $productRepository, CategoryRepository $categoryRepository)
     {
 
-//        $this->middleware('auth:admin');
         $this->productRepository = $productRepository;
         $this->categoryRepository = $categoryRepository;
 
@@ -53,20 +53,34 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return View
+     * @return JsonResponse
      */
-    public function index(): View
+    public function index(): JsonResponse
     {
-        $products = Product::paginate(5);
+//        try{
+//            $products = $this->productRepository->paginate(5);
+//
+//            return response()->json([
+//                'success' => true,
+//                'data' => $products,
+//            ]);
+//        } catch (\Throwable $exception) {
+//            logger($exception->getMessage(), [
+//                'code' => $exception->getCode(),
+//            ]);
+//        }
 
-        return view('product.index', compact('products'));
+        $products = Product::all();
+
+        return response()->json($products, 200);
+
     }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return View
-     * @throws \Exception
+     * @throws Exception
      */
     public function create(): View
     {
@@ -81,7 +95,7 @@ class ProductController extends Controller
      *
      * @param ProductStoreRequest $request
      * @return RedirectResponse
-     * @throws \Exception
+     * @throws Exception
      */
     public function store(ProductStoreRequest $request): RedirectResponse
     {
@@ -117,7 +131,7 @@ class ProductController extends Controller
      *
      * @param Product $product
      * @return View
-     * @throws \Exception
+     * @throws Exception
      */
     public function show(Product $product): View
     {
@@ -131,7 +145,7 @@ class ProductController extends Controller
      *
      * @param Product $product
      * @return View
-     * @throws \Exception
+     * @throws Exception
      */
     public function edit(Product $product): View
     {
@@ -148,7 +162,7 @@ class ProductController extends Controller
      * @param ProductUpdateRequest|Request $request
      * @param $productId
      * @return void
-     * @throws \Exception
+     * @throws Exception
      * @internal param int $id
      */
     public function update(ProductUpdateRequest $request, $productId)
