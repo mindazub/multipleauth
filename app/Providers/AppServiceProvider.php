@@ -20,10 +20,27 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
-        View::share('productBadge', DB::table('products')->count('id'));
-        View::share('categoryBadge', DB::table('categories')->count('id'));
-        View::share('userBadge', DB::table('users')->count('id'));
-        View::share('roleBadge', DB::table('roles')->count('id'));
+
+        if (Schema::hasTable('products')) {
+            View::share('productBadge', DB::table('products')->count('id'));
+        } else {
+            View::share('productBadge', 0);
+        }
+        if (Schema::hasTable('categories')) {
+            View::share('categoryBadge', DB::table('categories')->count('id'));
+        } else {
+            View::share('categoryBadge', 0);
+        }
+        if(Schema::hasTable('users')) {
+            View::share('userBadge', DB::table('users')->count('id'));
+        } else {
+            View::share('userBadge', 0);
+        }
+        if(Schema::hasTable('roles')) {
+            View::share('roleBadge', DB::table('roles')->count('id'));
+        } else {
+            View::share('roleBadge', 0);
+        }
     }
 
     /**
