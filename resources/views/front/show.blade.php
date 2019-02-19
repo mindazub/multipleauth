@@ -26,7 +26,11 @@
 
             <div class="col-lg-9">
 
-                <h1 class="my-4">Search Bar and Filters</h1>
+                {{--<h1 class="my-4">Search Bar and Filters</h1>--}}
+
+                <div id="search-bar">
+
+                </div>
 
                 <div class="card mt-4">
                     {{--<img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="">--}}

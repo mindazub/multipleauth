@@ -1,11 +1,14 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+import SearchComponent from "./components/SearchComponent";
+
 
 require('./bootstrap');
+
+
 
 window.Vue = require('vue');
 
@@ -18,6 +21,7 @@ window.Vue = require('vue');
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+// Vue.component('search-component', require('./components/SearchComponent.vue'));
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key)))
@@ -28,6 +32,13 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: '#app'
-});
+
+if (document.getElementById('search-bar')){
+    new Vue({
+        render: h => h(SearchComponent),
+    }).$mount('#search-bar');
+}
+
+// const app = new Vue({
+//     el: '#app'
+// });

@@ -8,7 +8,10 @@ namespace App\Repositories;
 
 
 use App\Category;
+use App\Product;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Http\JsonResponse;
 
 class CategoryRepository extends Repository
 {
@@ -66,4 +69,21 @@ class CategoryRepository extends Repository
         return $this->makeQuery()->count();
 
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function show(int $id): JsonResponse
+    {
+        try {
+            $category = Category::query()->findOrFail($id);
+        } catch (ModelNotFoundException $exception) {
+            return response(['message' => "Category by ID: $id not found."], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+        return response($category);
+    }
+
 }

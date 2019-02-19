@@ -57,22 +57,22 @@ class ProductController extends Controller
      */
     public function index(): JsonResponse
     {
-//        try{
-//            $products = $this->productRepository->paginate(5);
+        try{
+            $products = $this->productRepository->paginate(5);
+
+            return response()->json([
+                'success' => true,
+                'data' => $products,
+            ]);
+        } catch (\Throwable $exception) {
+            logger($exception->getMessage(), [
+                'code' => $exception->getCode(),
+            ]);
+        }
+
+//        $products = Product::with('categories')->get();
 //
-//            return response()->json([
-//                'success' => true,
-//                'data' => $products,
-//            ]);
-//        } catch (\Throwable $exception) {
-//            logger($exception->getMessage(), [
-//                'code' => $exception->getCode(),
-//            ]);
-//        }
-
-        $products = Product::all();
-
-        return response()->json($products, 200);
+//        return response()->json($products, 200);
 
     }
 

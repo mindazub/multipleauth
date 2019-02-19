@@ -25,6 +25,6 @@ Route::group(['prefix' => 'v1'], function() {
 //        Route::get('one/{articleId}/full', 'API\\ArticleController@getByIdFull');
 //        Route::get('full', 'API\\ArticleController@getFullData');
     });
-//    Route::apiResource('categories', 'API\\CategoryController')->only(['index', 'show']);
+    Route::apiResource('categories', 'API\\CategoryController')->only(['index', 'show']);
 //    Route::apiResource('author', 'API\\AuthorController')->only(['index', 'show']);
 });
