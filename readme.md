@@ -4,7 +4,7 @@
 
 Project Description: 
 
-B2B ESHOP API is an b2b eshop project, main advantages - simple interface, eshop b2b features, product access through api, excel import/export for products and categories.
+B2B ORDER SYSTEM AND API is an b2b order system project, main advantages - simple interface, eshop b2b features, product access through api, excel import/export for products and categories.
 
 Server Requirements: 
 
