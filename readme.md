@@ -1,6 +1,6 @@
 
 
-## B2B ESHOP API
+## B2B ORDER SYSTEM AND API
 
 Project Description: 
 
@@ -22,7 +22,11 @@ Project start:
 
 - php artisan migrate
 
-- Normal User /Register and /Login
+- php artisan db:seed
+
+- upload products from public/imports folder
+
+- User /Register and /Login
 
 - Admin User /admin/login
     

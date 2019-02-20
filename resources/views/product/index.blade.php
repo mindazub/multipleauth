@@ -96,8 +96,11 @@
             @foreach($products as $product)
                 <tr>
                     <td> {{ $product->id }}</td>
-                    <td> {{ $product->sku }}</td>
                     <td>
+                        @if($product->sku)
+                            <span class="badge">OK</span>
+                        @endif
+                    </td>                    <td>
                         @if($product->title)
                             <span class="badge">OK</span>
                         @endif

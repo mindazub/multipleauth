@@ -59,7 +59,7 @@ class FrontController extends Controller
 
         $products = $categoryFromView->products()->paginate();
 
-        return view('front.index', compact('category', 'products', 'categories'));
+        return view('front.index', compact('categoryFromView', 'products', 'categories'));
     }
 
 
