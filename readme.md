@@ -20,6 +20,10 @@ Project start:
 
 - php artisan storage:link
 
+- APP_URL=http://your-app-name.test
+
+- FILESYSTEM_DRIVER=public
+
 - php artisan migrate
 
 - php artisan db:seed
